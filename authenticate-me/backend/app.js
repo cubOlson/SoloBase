@@ -5,6 +5,7 @@ const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { environment } = require('./config');
+const routes = require('./routes');
 
 //Are we in production
 const isProduction = environment === 'production';
@@ -16,6 +17,8 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 //Parses JSON bodies of requests with Content-Type 'application-json'
 app.use(express.json());
+// Connect all the routes
+app.use(routes);
 
 // Security Middleware
 if (!isProduction) {
@@ -38,3 +41,5 @@ if (!isProduction) {
       },
     })
   );
+
+  module.exports = app;
