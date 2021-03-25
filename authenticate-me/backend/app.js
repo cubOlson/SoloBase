@@ -17,8 +17,6 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 //Parses JSON bodies of requests with Content-Type 'application-json'
 app.use(express.json());
-// Connect all the routes
-app.use(routes);
 
 // Security Middleware
 if (!isProduction) {
@@ -36,10 +34,12 @@ if (!isProduction) {
       cookie: {
         secure: isProduction,
         sameSite: isProduction && "Lax",
-        //Can't be read by Javascript, adds to any server response
         httpOnly: true,
       },
     })
   );
+
+  // Connect all the routes
+app.use(routes);
 
   module.exports = app;
