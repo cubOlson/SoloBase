@@ -22,6 +22,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING.BINARY
       },
+      truckId: {
+        type: Sequelize.INTEGER,
+        references: { model: 'Trucks' }
+      },
+      avatarURL: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
