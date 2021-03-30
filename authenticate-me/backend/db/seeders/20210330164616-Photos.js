@@ -19,6 +19,14 @@ module.exports = {
           isMenu: false,
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          caption: 'Truck 1 Menu',
+          url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.buehlers.com%2Ffood-truck-taco-menu&psig=AOvVaw0CLpjc-V2TfekMOP75GHMl&ust=1617211863613000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj3hejF2O8CFQAAAAAdAAAAABAD',
+          truckId: 1,
+          isMenu: true,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ], {});
 
