@@ -15,4 +15,16 @@ router.get(
     })
 );
 
+//Grab Truck by Id
+router.get(
+    '/:id',
+    asyncHandler(async (req, res, next) => {
+
+        const id = Number(req.params.id);
+
+        const truck = await Truck.findAll({where:{id}});
+        res.json({ truck });
+    })
+);
+
 module.exports = router;

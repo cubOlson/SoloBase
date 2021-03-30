@@ -3,24 +3,18 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkInsert('Locations', [
+      return queryInterface.bulkInsert('LocationVotes', [
         {
-          name: 'The Streets',
-          address1: '1 Street N',
-          address2: 'On the Left',
-          city: 'Urcity',
-          state: 'Urstate',
-          postalCode: 5032,
+          truckId: 1,
+          locationId: 1,
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          name: 'The Streets2',
-          address1: '2 Street N',
-          address2: 'On the Right',
-          city: 'Urcity',
-          state: 'Urstate',
-          postalCode: 5033,
+          truckId: 2,
+          locationId: 2,
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         }

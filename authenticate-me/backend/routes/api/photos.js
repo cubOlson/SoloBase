@@ -3,7 +3,6 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-
 const { Photo } = require('../../db/models');
 
 const router = express.Router();
@@ -30,7 +29,7 @@ router.get(
     '/:id',
     asyncHandler( async(req, res, next) => {
 
-        const { id } = req.params;
+        const id = Number(req.params.id);
 
         const truckPhotos = await Photo.findAll({where: {truckId: id }});
         return res.json( {truckPhotos} );
@@ -42,13 +41,14 @@ router.get(
     '/:id/menu',
     asyncHandler( async(req, res, next) => {
 
-        const { id } = req.params;
+        const id = Number(req.params.id);
 
         const menuPhoto = await Photo.findAll({where: {truckId: id, isMenu: true }});
         return res.json( {menuPhoto} );
     })
 );
 
+//Add a Photo
 router.post(
     '/:id',
     validatePhoto,
