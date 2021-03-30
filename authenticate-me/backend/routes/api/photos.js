@@ -20,7 +20,7 @@ router.get(
     asyncHandler( async(req, res, next) => {
 
         const allPhotos = await Photo.findAll();
-        return res.json( {allPhotos} );
+        return res.json({ allPhotos });
     })
 );
 
@@ -32,7 +32,7 @@ router.get(
         const id = Number(req.params.id);
 
         const truckPhotos = await Photo.findAll({where: {truckId: id }});
-        return res.json( {truckPhotos} );
+        return res.json({ truckPhotos });
     })
 );
 
@@ -44,7 +44,7 @@ router.get(
         const id = Number(req.params.id);
 
         const menuPhoto = await Photo.findAll({where: {truckId: id, isMenu: true }});
-        return res.json( {menuPhoto} );
+        return res.json({ menuPhoto });
     })
 );
 
@@ -64,7 +64,7 @@ router.post(
             isMenu
         });
 
-        return res.json( {photo} );
+        return res.json({ photo });
     })
 );
 

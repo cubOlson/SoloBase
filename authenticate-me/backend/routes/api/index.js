@@ -7,6 +7,9 @@ const photosRouter = require('./photos.js');
 const reviewsRouter = require('./reviews.js');
 const locationsRouter = require('./locations.js');
 const locationVotesRouter = require('./locationVote.js');
+const userTruckRouter = require('./userTruck.js');
+
+router.use('/userTrucks', userTruckRouter);
 
 router.use('/locationVotes', locationVotesRouter)
 
