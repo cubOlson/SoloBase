@@ -15,6 +15,7 @@ router.get(
     })
 );
 
+//Get location by Id
 router.get(
     '/:id',
     asyncHandler( async(req, res, next) => {

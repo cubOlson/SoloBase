@@ -6,8 +6,8 @@ const trucksRouter = require('./trucks.js');
 const photosRouter = require('./photos.js');
 const reviewsRouter = require('./reviews.js');
 const locationsRouter = require('./locations.js');
-const locationVotesRouter = require('./locationVote.js');
-const userTruckRouter = require('./userTruck.js');
+const locationVotesRouter = require('./locationVotes.js');
+const userTruckRouter = require('./userTrucks.js');
 
 router.use('/userTrucks', userTruckRouter);
 

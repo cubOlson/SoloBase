@@ -17,15 +17,13 @@ router.get(
     })
 );
 
-//Add User Favorite Truck
+//Add User Favorite Truck by User Id
 router.post(
     '/:id',
     asyncHandler( async(req, res) => {
 
         const userId = Number(req.params.id);
         const { truckId } = req.body;
-
-        console.log('Pre-check')
 
         const check = await userTruck.findOne({where:{userId,truckId}});
         if (check) {
@@ -41,8 +39,19 @@ router.post(
     })
 );
 
+//Delete favorite truck by user Id
 router.delete(
-    
-)
+    '/:id',
+    asyncHandler( async(req, res) => {
+
+        const userId = Number(req.params.id);
+        const { truckId } = req.body;
+
+        const deleteThis = await userTruck.findOne({where:{userId,truckId}});
+        await deleteThis.destroy();
+
+        return res.send({ message: "Truck removed from favorites" });
+    })
+);
 
 module.exports = router;
