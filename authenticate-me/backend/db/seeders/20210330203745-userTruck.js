@@ -9,7 +9,19 @@ module.exports = {
           truckId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
-        }
+        },
+        {
+          userId: 1,
+          truckId: 6,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          userId: 2,
+          truckId: 9,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
       ], {});
 
   },

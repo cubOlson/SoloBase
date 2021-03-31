@@ -23,7 +23,37 @@ module.exports = {
           postalCode: 5033,
           createdAt: new Date(),
           updatedAt: new Date()
-        }
+        },
+        {
+          name: 'Bridgetown',
+          address1: '11 Alameda St.',
+          address2: '',
+          city: 'Urcity',
+          state: 'Urstate',
+          postalCode: 5032,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'The Docks',
+          address1: '1232 W Grammerton Rd.',
+          address2: `Can't miss it`,
+          city: 'Urcity',
+          state: 'Urstate',
+          postalCode: 5032,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Plaza District',
+          address1: '123-145 North End Plaza',
+          address2: '',
+          city: 'Urcity',
+          state: 'Urstate',
+          postalCode: 5033,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
       ], {});
 
   },
