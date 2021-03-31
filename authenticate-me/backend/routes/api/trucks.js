@@ -35,7 +35,7 @@ router.get(
     asyncHandler(async (req, res, next) => {
 
         const trucks = await Truck.findAll();
-        res.json({ trucks });
+        res.json( trucks );
     })
 );
 
@@ -47,7 +47,7 @@ router.get(
         const id = Number(req.params.id);
 
         const truck = await Truck.findAll({where:{id}});
-        res.json({ truck });
+        res.json( truck );
     })
 );
 
@@ -70,7 +70,7 @@ router.post(
             priceRange
         });
 
-        return res.json({ truck });
+        return res.json( truck );
     })
 );
 
