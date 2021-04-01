@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import TrucksList from './components/TrucksList';
+import TruckPage from './components/TruckPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,8 +31,8 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/trucksTest' exact>
-            <TrucksList />
+          <Route path='/trucks/:id'>
+            <TruckPage />
           </Route>
         </Switch>
       )}

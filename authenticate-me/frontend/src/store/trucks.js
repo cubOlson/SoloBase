@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const SET_TRUCKS = 'trucks/SET_TRUCKS';
+const SET_ONE_TRUCK = 'trucks/SET_ONE_TRUCK';
 const ADD_TRUCK = 'trucks/ADD_TRUCK';
 
 const setTrucks = (trucks) => {
@@ -10,9 +11,9 @@ const setTrucks = (trucks) => {
     };
 }
 
-const addTruck = (truck) => {
+const setOneTruck = (truck) => {
     return {
-        type: ADD_TRUCK,
+        type: SET_ONE_TRUCK,
         payload: truck
     };
 }
@@ -26,6 +27,17 @@ export const getTrucks = () => async (dispatch) => {
 
     const trucks = await response.json();
     dispatch(setTrucks(trucks));
+}
+
+export const getOneTruck = (id) => async (dispatch) => {
+
+    const response = await csrfFetch(`/api/trucks/${id}`);
+    if (!response.ok) {
+        throw response;
+    }
+
+    const truck = await response.json();
+    dispatch(setOneTruck(truck));
 }
 
 // export const addTruck = () => async (dispatch) => {
@@ -44,6 +56,9 @@ const trucksReducer = (trucks = {}, action) => {
                 newTrucks[truck.id] = truck;
             }
             return newTrucks;
+        case SET_ONE_TRUCK:
+            const truckPayload = action.payload[0];
+            return truckPayload;
         case ADD_TRUCK:
             return trucks;
         default:

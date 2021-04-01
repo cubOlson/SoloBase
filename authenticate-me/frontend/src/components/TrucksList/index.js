@@ -4,7 +4,6 @@ import { getTrucks } from '../../store/trucks';
 
 function TrucksList () {
     const trucks = useSelector(state => state.trucks)
-    console.log(trucks);
 
     const dispatch = useDispatch();
 
