@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
   Truck.associate = function(models) {
     Truck.belongsTo(models.Location, { foreignKey: 'locationId' });
     Truck.hasMany(models.Review, { foreignKey: 'truckId' });
-    Truck.hasMany(models.LocationVote, { foreignKey: 'truckId'});
     Truck.hasMany(models.Photo, { foreignKey: 'truckId' });
   };
   return Truck;

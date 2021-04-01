@@ -6,12 +6,12 @@ const trucksRouter = require('./trucks.js');
 const photosRouter = require('./photos.js');
 const reviewsRouter = require('./reviews.js');
 const locationsRouter = require('./locations.js');
-const locationVotesRouter = require('./locationVotes.js');
 const userTruckRouter = require('./userTrucks.js');
+const reservationRouter = require('./reservations.js');
+
+router.use('/reservations', reservationRouter);
 
 router.use('/userTrucks', userTruckRouter);
-
-router.use('/locationVotes', locationVotesRouter)
 
 router.use('/locations', locationsRouter)
 

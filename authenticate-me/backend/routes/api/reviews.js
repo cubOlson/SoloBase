@@ -28,7 +28,7 @@ router.get(
         const id = Number(req.params.id);
 
         const truckReviews = await Review.findAll({where: {truckId: id }});
-        return res.json({ truckReviews });
+        return res.json( truckReviews );
     })
 );
 
@@ -40,7 +40,7 @@ router.get(
         const id = Number(req.params.id);
 
         const userReviews = await Review.findAll({where: {userId: id }});
-        return res.json({ userReviews });
+        return res.json( userReviews );
     })
 );
 
@@ -61,7 +61,7 @@ router.post(
             stars
         });
 
-        return res.json({ review });
+        return res.json( review );
     })
 );
 

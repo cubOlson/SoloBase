@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
     postalCode: DataTypes.INTEGER
   }, {});
   Location.associate = function(models) {
-    Location.hasMany(models.LocationVote, { foreignKey: 'locationId' });
     Location.hasMany(models.Truck, { foreignKey: 'locationId' });
   };
   return Location;

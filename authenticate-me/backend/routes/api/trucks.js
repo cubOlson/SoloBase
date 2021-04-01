@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const { Truck } = require('../../db/models');
+const { Truck, Photo } = require('../../db/models');
 
 const router = express.Router();
 
