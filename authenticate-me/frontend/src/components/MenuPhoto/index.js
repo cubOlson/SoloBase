@@ -8,15 +8,12 @@ import { useParams } from 'react-router-dom';
 function MenuBox () {
     const photos = useSelector(state => state.photos);
     const { id } = useParams();
-    console.log('id:', id)
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getMenu(id));
     }, [dispatch, id]);
-    
-    console.log('photos:', photos)
 
     return (
         <img src={photos.url} alt={photos.caption}/>

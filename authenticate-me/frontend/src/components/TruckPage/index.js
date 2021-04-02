@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneTruck } from '../../store/trucks';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import ReviewBox from '../TruckReviews';
 import MenuBox from '../MenuPhoto';
@@ -11,6 +11,8 @@ import './TruckPage.css';
 
 function TruckPage () {
     const trucks = useSelector(state => state.trucks);
+    const sessionUser = useSelector(state => state.user);
+    console.log("user:", sessionUser)
     const { id } = useParams();
 
     const dispatch = useDispatch();
@@ -18,6 +20,21 @@ function TruckPage () {
     useEffect(() => {
         dispatch(getOneTruck(id));
     }, [dispatch, id]);
+
+    let reviewButton;
+    if (sessionUser) {
+        reviewButton = (
+        <li>
+            <Link to="/review">
+                <button type="button">Leave a Review!</button>
+            </Link>
+        </li>
+        ) 
+    } else {
+        reviewButton = (
+            <div>Nothing Here</div>
+        )
+    }
     
     return (
         <div className="pageDiv">
@@ -38,6 +55,7 @@ function TruckPage () {
                     <a href={trucks.website}>Website</a>
                 </div>
             </div>
+            {reviewButton}
             <div className="photosDiv">
                 <MenuBox />
                 <PhotosBox />

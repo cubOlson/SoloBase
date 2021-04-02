@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation";
 import ReviewFormPage from "./components/ReviewForm";
 import TrucksList from './components/TrucksList';
 import TruckPage from './components/TruckPage';
+import ReservationFormPage from './components/ReservationForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,8 +36,11 @@ function App() {
           <Route path='/trucks/:id'>
             <TruckPage />
           </Route>
-          <Route path='/test'>
+          <Route path='/review'>
             <ReviewFormPage />
+          </Route>
+          <Route path='/reservation'>
+            <ReservationFormPage />
           </Route>
         </Switch>
       )}
