@@ -7,6 +7,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import HomePage from "./components/HomePage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import ReviewFormPage from "./components/ReviewForm";
 import TrucksList from './components/TrucksList';
 import TruckPage from './components/TruckPage';
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path='/trucks/:id'>
             <TruckPage />
+          </Route>
+          <Route path='/test'>
+            <ReviewFormPage />
           </Route>
         </Switch>
       )}
