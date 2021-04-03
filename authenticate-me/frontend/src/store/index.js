@@ -5,6 +5,7 @@ import sessionReducer from './session';
 import trucksReducer from './trucks';
 import photosReducer from './photos';
 import reservationReducer from './reservations';
+import userTrucksReducer from './userTrucks';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   reviews: reviewsReducer,
   photos: photosReducer,
   reservations: reservationReducer,
+  userTrucks: userTrucksReducer,
 });
 
 let enhancer;

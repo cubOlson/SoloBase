@@ -1,1 +1,46 @@
-/* TODO Add site wide styles */
+body {
+    padding: 64px;
+    font: 14px;
+    /* font-family: "Montserrat", sans-serif; */
+    /* background-size: cover; */
+    background-color: lightgrey;
+  }
+  
+  a {
+    color: #00b7ff;
+    /* Added no text decoration here... can take off everywhere else in document */
+    text-decoration: none;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  input:focus {
+    outline: none;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  ol,
+  li,
+  span,
+  body,
+  header,
+  nav {
+    /* font-size: 1rem; */
+    color: inherit;
+    /* background-color: transparent; */
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-weight: normal;
+  }

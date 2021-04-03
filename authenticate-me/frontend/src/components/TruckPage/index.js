@@ -8,10 +8,11 @@ import MenuBox from '../MenuPhoto';
 import PhotosBox from '../TruckPhotos';
 
 import './TruckPage.css';
+import '../../index.css';
 
 function TruckPage () {
     const trucks = useSelector(state => state.trucks);
-    const sessionUser = useSelector(state => state.user);
+    const sessionUser = useSelector(state => state.session.user);
     console.log("user:", sessionUser)
     const { id } = useParams();
 
@@ -30,10 +31,6 @@ function TruckPage () {
             </Link>
         </li>
         ) 
-    } else {
-        reviewButton = (
-            <div>Nothing Here</div>
-        )
     }
     
     return (
