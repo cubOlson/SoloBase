@@ -1,5 +1,6 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
@@ -41,6 +42,11 @@ function ProfileButton({ user }) {
           <li>
             <button onClick={logout}>Log Out</button>
           </li>
+          {/* <li>
+            <Link to='/createTruck'>
+              <button>Create New Truck</button>
+            </Link>
+          </li> */}
         </ul>
       )}
     </>

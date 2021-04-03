@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTruckReviews } from '../../store/reviews';
+import { getTruckReviews} from '../../store/reviews';
 import { useParams } from 'react-router-dom';
 
 import './TruckReviews.css';

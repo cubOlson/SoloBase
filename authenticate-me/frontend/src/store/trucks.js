@@ -18,6 +18,13 @@ const setOneTruck = (truck) => {
     };
 }
 
+const addTruck = (truck) => {
+    return {
+        type: ADD_TRUCK,
+        payload: truck
+    };
+}
+
 export const getTrucks = () => async (dispatch) => {
 
     const response = await csrfFetch('/api/trucks');
@@ -40,18 +47,33 @@ export const getOneTruck = (id) => async (dispatch) => {
     dispatch(setOneTruck(truck));
 }
 
-// export const addTruck = () => async (dispatch) => {
-//     const response = await csrfFetch('/api/trucks');
-//     const data = await response.json();
-//     dispatch(setTrucks(data.trucks));
-//     return data;
-// }
+export const addNewTruck = (truck) => async (dispatch) => {
+
+    const { name, description, locationId, phone, website, foodType, priceRange } = truck;
+
+    const response = await csrfFetch('/api/trucks', {
+        method: 'POST',
+        body: JSON.stringify({
+            name,
+            description,
+            locationId,
+            phone,
+            website,
+            foodType,
+            priceRange
+        })
+    });
+
+    const newTruck = await response.json();
+    dispatch(addTruck(newTruck));
+}
 
 const trucksReducer = (trucks = {}, action) => {
+    let newTrucks;
     switch (action.type) {
         case SET_TRUCKS:
             const trucksPayload = action.payload;
-            const newTrucks = {};
+            newTrucks = {};
             for (const truck of trucksPayload) {
                 newTrucks[truck.id] = truck;
             }
@@ -60,7 +82,9 @@ const trucksReducer = (trucks = {}, action) => {
             const truckPayload = action.payload[0];
             return truckPayload;
         case ADD_TRUCK:
-            return trucks;
+            const newTruckPayload = action.payload;
+            newTrucks = {...trucks, newTruckPayload}
+            return newTrucks;
         default:
             return trucks;
     }

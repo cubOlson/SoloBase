@@ -11,6 +11,7 @@ import ReviewFormPage from "./components/ReviewForm";
 import TrucksList from './components/TrucksList';
 import TruckPage from './components/TruckPage';
 import ReservationFormPage from './components/ReservationForm';
+import CreateTruckPage from './components/CreateTruckPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path='/reservation'>
             <ReservationFormPage />
+          </Route>
+          <Route path='/createTruck'>
+            <CreateTruckPage />
           </Route>
         </Switch>
       )}
