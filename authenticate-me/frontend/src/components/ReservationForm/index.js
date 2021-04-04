@@ -56,6 +56,8 @@ function ReservationFormPage() {
 
   return (
     <div className='form_parent'>
+      <h1>Truck Reservation Form</h1>
+      <p>Please provide a valid phone number for event confirmation.</p>
         <form className='form' onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -121,7 +123,7 @@ function ReservationFormPage() {
               required
             />
           </label>
-          <button type="submit">Submit Review</button>
+          <button type="submit">Submit Request</button>
         </form>
         </div>
   );

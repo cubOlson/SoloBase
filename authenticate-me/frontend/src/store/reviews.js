@@ -1,12 +1,20 @@
 import { csrfFetch } from './csrf';
 
 const SET_TRUCK_REVIEWS = 'reviews/SET_TRUCK_REVIEWS';
+const SET_USER_REVIEWS = 'reviews/SET_USER_REVIEWS';
 const ADD_TRUCK_REVIEW = 'reviews/ADD_TRUCK_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
 
 const setTruckReviews = (reviews) => {
     return {
         type: SET_TRUCK_REVIEWS,
+        payload: reviews
+    };
+}
+
+const setUserReviews = (reviews) => {
+    return {
+        type: SET_USER_REVIEWS,
         payload: reviews
     };
 }
@@ -33,6 +41,17 @@ export const getTruckReviews = (id) => async (dispatch) => {
 
     const reviews = await response.json();
     dispatch(setTruckReviews(reviews));
+}
+
+export const getUserReviews = (id) => async (dispatch) => {
+
+    const response = await csrfFetch(`/api/reviews/user/${id}`);
+    if (!response.ok) {
+        throw response;
+    }
+
+    const reviews = await response.json();
+    dispatch(setUserReviews(reviews));
 }
 
 export const addReview = (review) => async (dispatch) => {
@@ -66,9 +85,17 @@ export const getDeleteReview = (id) => async (dispatch) => {
 
 const reviewsReducer = (reviews = {}, action) => {
     let newReviews;
+    let reviewsPayload;
     switch (action.type) {
         case SET_TRUCK_REVIEWS:
-            const reviewsPayload = action.payload;
+            reviewsPayload = action.payload;
+            newReviews = {};
+            for (const review of reviewsPayload) {
+                newReviews[review.id] = review;
+            }
+            return newReviews;
+        case SET_USER_REVIEWS:
+            reviewsPayload = action.payload;
             newReviews = {};
             for (const review of reviewsPayload) {
                 newReviews[review.id] = review;

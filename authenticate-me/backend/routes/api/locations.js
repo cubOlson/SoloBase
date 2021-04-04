@@ -11,7 +11,7 @@ router.get(
     asyncHandler( async(req, res, next) => {
 
         const locations = await Location.findAll();
-        return res.json({ locations });
+        return res.json( locations );
     })
 );
 
@@ -23,7 +23,7 @@ router.get(
         const id = Number(req.params.id)
 
         const location = await Location.findAll({where:{id}});
-        return res.json({ location });
+        return res.json( location );
     })
 );
 

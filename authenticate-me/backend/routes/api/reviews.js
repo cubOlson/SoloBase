@@ -46,12 +46,11 @@ router.get(
 
 //Add a review
 router.post(
-    '/truck/:id',
+    '/',
     validateReview,
     asyncHandler( async(req, res) => {
 
-        const truckId = Number(req.params.id);
-        const { userId, title, content, stars } = req.body;
+        const { truckId, userId, title, content, stars } = req.body;
 
         const review = await Review.create({
             truckId,

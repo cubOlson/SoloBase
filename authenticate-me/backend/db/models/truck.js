@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     Truck.belongsTo(models.Location, { foreignKey: 'locationId' });
     Truck.hasMany(models.Review, { foreignKey: 'truckId' });
     Truck.hasMany(models.Photo, { foreignKey: 'truckId' });
+    Truck.hasMany(models.userTruck, { foreignKey: 'truckId' });
   };
   return Truck;
 };

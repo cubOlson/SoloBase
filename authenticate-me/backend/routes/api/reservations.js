@@ -49,13 +49,12 @@ router.get(
 
 //Add a Reservation
 router.post(
-    '/:id',
+    '/',
     validateReservation,
     asyncHandler( async(req, res) => {
 
-        const truckId = Number(req.params.id);
-
         const { 
+            truckId,
             name,
             address1,
             address2,

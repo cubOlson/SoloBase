@@ -8,10 +8,10 @@ import HomePage from "./components/HomePage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ReviewFormPage from "./components/ReviewForm";
-import TrucksList from './components/TrucksList';
 import TruckPage from './components/TruckPage';
 import ReservationFormPage from './components/ReservationForm';
 import CreateTruckPage from './components/CreateTruckPage';
+import UserPage from './components/UserPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +45,9 @@ function App() {
           </Route>
           <Route path='/createTruck'>
             <CreateTruckPage />
+          </Route>
+          <Route path='/userPage'>
+            <UserPage />
           </Route>
         </Switch>
       )}

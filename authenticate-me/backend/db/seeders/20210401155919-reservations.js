@@ -23,10 +23,22 @@ module.exports = {
           date: '4/11/21',
           email: 'fake11@gmail.com',
           phone: '763-231-2933',
-          userId: 2,
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
-        }
+        },
+        {
+          truckId: 2,
+          name: 'Crub Bolson',
+          address1: '12 Ramsey Street',
+          address2: 'Door 2',
+          date: '4/12/21',
+          email: 'fake11@gmail.com',
+          phone: '763-231-2933',
+          userId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
       ], {});
   },
 

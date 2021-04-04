@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const SET_TRUCK_RESERVATIONS = 'reservations/SET_TRUCK_RESERVATIONS';
 const SET_USER_RESERVATIONS = 'reservations/SET_USER_RESERVATIONS';
 const ADD_RESERVATION = 'reservations/SET_RESERVATIONS';
+const DELETE_RESERVATION = 'reservations/DELETE_RESERVATION'
 
 const setTruckReservations = (reservations) => {
     return {
@@ -23,6 +24,12 @@ const addReservation = (reservation) => {
         type: ADD_RESERVATION,
         payload: reservation
     };
+}
+
+const deleteReservation = () => {
+    return {
+        type: DELETE_RESERVATION
+    }
 }
 
 export const getTruckReservations = (id) => async (dispatch) => {
@@ -69,6 +76,16 @@ export const addAReservation = (reservation) => async (dispatch) => {
     dispatch(addReservation(newReservation));
 }
 
+export const getDeleteReservation = (id) => async (dispatch) => {
+
+    const response = await csrfFetch(`/api/reservations/${id}`, {
+        method: 'DELETE'
+    });
+
+    dispatch(deleteReservation());
+    return response;
+}
+
 const reservationReducer = (reservations = {}, action) => {
     let newReservations;
     let reservationPayload;
@@ -91,6 +108,8 @@ const reservationReducer = (reservations = {}, action) => {
             reservationPayload = action.payload;
             newReservations = {...reservations, reservationPayload}
             return newReservations;
+        case DELETE_RESERVATION:
+            return reservations;
         default:
             return reservations;
     }

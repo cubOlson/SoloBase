@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 
-const { userTruck } = require('../../db/models');
+const { userTruck, Truck } = require('../../db/models');
 
 const router = express.Router();
 
@@ -12,8 +12,8 @@ router.get(
 
         const id = Number(req.params.id);
 
-        const allFavorites = await userTruck.findAll({where:{userId:id}});
-        return res.json({ allFavorites });
+        const allFavorites = await userTruck.findAll({where:{userId:id}, include:[{model:Truck}]});
+        return res.json( allFavorites );
     })
 );
 
@@ -35,7 +35,7 @@ router.post(
             truckId
         });
 
-        return res.json({ newFavorite });
+        return res.json( newFavorite );
     })
 );
 

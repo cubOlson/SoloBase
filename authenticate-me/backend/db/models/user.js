@@ -30,9 +30,6 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
-    truckId: {
-      type: DataTypes.INTEGER,
-    },
     avatarURL: {
       type: DataTypes.STRING,
     }
@@ -54,8 +51,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   User.associate = function(models) {
-    User.belongsTo(models.Truck, { foreignKey: 'truckId' });
     User.hasMany(models.Review, { foreignKey: 'userId' });
+    User.hasMany(models.userTruck, { foreignKey: 'userId' });
   };
 
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function

@@ -13,7 +13,6 @@ import '../../index.css';
 function TruckPage () {
     const trucks = useSelector(state => state.trucks);
     const sessionUser = useSelector(state => state.session.user);
-    console.log("user:", sessionUser)
     const { id } = useParams();
 
     const dispatch = useDispatch();
@@ -28,6 +27,9 @@ function TruckPage () {
         <li>
             <Link to="/review">
                 <button type="button">Leave a Review!</button>
+            </Link>
+            <Link to="/reservation">
+                <button type="button">Request a Truck!</button>
             </Link>
         </li>
         ) 

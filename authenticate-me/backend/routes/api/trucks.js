@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const { Truck, Photo } = require('../../db/models');
+const { Truck } = require('../../db/models');
 
 const router = express.Router();
 
@@ -58,7 +58,7 @@ router.post(
     validateTruck,
     asyncHandler( async(req, res) => {
 
-        const { name, description, locationId, phone, website, foodType, priceRange } = req.body;
+        const { name, description, locationId, phone, website, foodType, priceRange, userId } = req.body;
 
         const truck = await Truck.create({
             name,
