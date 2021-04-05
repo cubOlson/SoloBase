@@ -5,6 +5,7 @@ import { getUserReservations, getDeleteReservation } from '../../store/reservati
 
 // import './TruckPage.css';
 import '../../index.css';
+import './UserPage.css';
 
 function UserPage () {
     const reviews = useSelector(state => state.reviews);
@@ -57,13 +58,17 @@ function UserPage () {
     });
     
     return (
-        <div>
-            <h1>Welcome {sessionUser.username}</h1>
-            <div>
-                {userReviewElement}
-            </div>
-            <div>
-                {userReservationElement}
+        <div className="userParent">
+            <div className="user">
+                <h1>Welcome {sessionUser.username}</h1>
+                <h2>Your Reservations</h2>
+                <div>
+                    {userReservationElement}
+                </div>
+                <h2>Your Reviews</h2>
+                <div>
+                    {userReviewElement}
+                </div>
             </div>
         </div>
     )

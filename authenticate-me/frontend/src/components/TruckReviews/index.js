@@ -17,7 +17,7 @@ function ReviewBox () {
     
     const reviewsElement = Object.values(reviews).map(review => {
         let theName;
-        if(review.User.username) theName = review.User.username;
+        if(review.User) theName = review.User.username;
         else theName = "null";
         return (
             <li key={review.id} className="reviewLi">

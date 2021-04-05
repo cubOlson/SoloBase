@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { addAReservation } from '../../store/reservations';
 import { getTrucks } from '../../store/trucks';
 
-// import './ReservationForm.css';
+import './ReservationForm.css';
 
 function ReservationFormPage() {
   const dispatch = useDispatch();
@@ -56,8 +56,10 @@ function ReservationFormPage() {
 
   return (
     <div className='form_parent'>
-      <h1>Truck Reservation Form</h1>
-      <p>Please provide a valid phone number for event confirmation.</p>
+      <div>
+        <h1>Truck Reservation Form</h1>
+        <p>Please provide a valid phone number for event confirmation.</p>
+      </div>
         <form className='form' onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}

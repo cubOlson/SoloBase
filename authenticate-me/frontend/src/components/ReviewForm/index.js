@@ -53,8 +53,10 @@ function ReviewFormPage() {
 
   return (
     <div className='form_parent'>
-      <h1>Review Form</h1>
-      <p>Please be nice to our truckers</p>
+      <div>
+        <h1>Review Form</h1>
+        <p>Please be nice to our truckers</p>
+      </div>
         <form className='form' onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
