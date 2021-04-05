@@ -14,9 +14,16 @@
     background-color: bisque;
 }
 
+.title h1 {
+    font-size: 70pt;
+    color: var(--yellow);
+}
+
 .title {
     position: absolute;
     top: 100px;
+    text-align: center;
+    color: var(--yellow);
 }
 
 .image {
@@ -33,6 +40,7 @@
 
 .description {
     background-color: var(--green);
+    font-size: 20pt;
     width: 95%;
     display: flex;
     justify-content: center;

@@ -52,15 +52,28 @@ router.post(
 
         const { truckId, userId, title, content, stars } = req.body;
 
-        const review = await Review.create({
-            truckId,
-            userId,
-            title, 
-            content,
-            stars
-        });
+        const existReview = await Review.findOne({where: {userId, truckId}});
+        if (existReview) {
+            existReview.truckId = truckId;
+            existReview.userId = userId;
+            existReview.title = title;
+            existReview.content = content;
+            existReview.stars = stars;
+            const newRev = await existReview.save()
+            return res.json( newRev );
+        } else {
+            const review = await Review.create({
+                truckId,
+                userId,
+                title, 
+                content,
+                stars
+            });
+    
+            return res.json( review );
+        }
 
-        return res.json( review );
+
     })
 );
 

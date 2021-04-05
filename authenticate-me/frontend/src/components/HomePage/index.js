@@ -34,12 +34,13 @@ function HomePage(){
     return (
         <div className="parent">
             <div className="title">
-                <h1>Welcome to StandingRoomOnly!</h1>
+                <h1>StandingRoomOnly</h1>
+                <p>Urcity's premiere food truck website.</p>
             </div>
             <div className="image">
             </div>
             <div className="description">
-                <p>Tracking most food trucks in the Urcity area since 2021</p>
+                <p>Check out our truck pages!</p>
             </div>
             <div className="trucks">
                 {trucksElement}

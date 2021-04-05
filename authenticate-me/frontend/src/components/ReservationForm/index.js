@@ -23,7 +23,7 @@ function ReservationFormPage() {
   const [name, setName] = useState("");
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
-  const [date, setDate] = useState("mm/dd");
+  const [date, setDate] = useState("2021-04-05");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState([]);
@@ -102,8 +102,10 @@ function ReservationFormPage() {
           <label className='form_child'>
            Enter Desired Date
             <input
-              type="text"
+              type="date"
               value={date}
+              min="2021-04-05"
+              max="2021-06-30"
               onChange={(e) => setDate(e.target.value)}
               required
             />
