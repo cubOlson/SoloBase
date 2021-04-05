@@ -1,0 +1,25 @@
+:root {
+    --darbrown: #5c0006;
+    --green: #95ab13;
+    --yellow: #f09902;
+    --orange: #c45402;
+    --brown: #782f00;
+}
+
+.reviewsDiv {
+    width: 90%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+}
+
+.reviewLi {
+    box-sizing: border-box;
+    background-color: var(--green);
+    border: 2px solid var(--orange);
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+}

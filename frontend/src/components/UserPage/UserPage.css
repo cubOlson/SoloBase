@@ -1,0 +1,10 @@
+.userParent {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.user {
+    width: 100%;
+    margin: 20px;
+}
