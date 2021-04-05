@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const { Review } = require('../../db/models');
+const { Review, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -27,7 +27,7 @@ router.get(
 
         const id = Number(req.params.id);
 
-        const truckReviews = await Review.findAll({where: {truckId: id }});
+        const truckReviews = await Review.findAll({where: {truckId: id }, include: [{model:User}]});
         return res.json( truckReviews );
     })
 );
