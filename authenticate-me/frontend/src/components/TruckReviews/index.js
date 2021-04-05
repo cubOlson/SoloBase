@@ -16,10 +16,14 @@ function ReviewBox () {
     }, [dispatch, id]);
     
     const reviewsElement = Object.values(reviews).map(review => {
+        let theName;
+        if(review.User.username) theName = review.User.username;
+        else theName = "null";
         return (
             <li key={review.id} className="reviewLi">
                 <h3>{review.title}</h3>
                 <p>{review.content}</p>
+                <p>- {theName}</p>
             </li>
         );
         });

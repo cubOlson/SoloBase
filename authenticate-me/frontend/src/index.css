@@ -1,9 +1,17 @@
+:root {
+  --darbrown: #5c0006;
+  --green: #95ab13;
+  --yellow: #f09902;
+  --orange: #c45402;
+  --brown: #782f00;
+}
+
 body {
     padding: 64px;
     font: 14px;
     /* font-family: "Montserrat", sans-serif; */
     /* background-size: cover; */
-    background-color: lightgrey;
+    background-color: bisque;
   }
   
   a {

@@ -1,16 +1,27 @@
+:root {
+    --darbrown: #5c0006;
+    --green: #95ab13;
+    --yellow: #f09902;
+    --orange: #c45402;
+    --brown: #782f00;
+}
+
 .nav_parent {
     width: 100%;
-    background-color: grey;
+    background-color: var(--brown);
 }
 
 .nav {
     box-sizing:border-box;
     border: 1px solid black;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
 }
 
 .link {
     box-sizing: border-box;
-    border: 1px solid black;
+    background-color: var(--orange);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
 }

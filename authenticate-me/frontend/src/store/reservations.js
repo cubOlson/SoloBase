@@ -3,7 +3,7 @@ import { csrfFetch } from './csrf';
 const SET_TRUCK_RESERVATIONS = 'reservations/SET_TRUCK_RESERVATIONS';
 const SET_USER_RESERVATIONS = 'reservations/SET_USER_RESERVATIONS';
 const ADD_RESERVATION = 'reservations/SET_RESERVATIONS';
-const DELETE_RESERVATION = 'reservations/DELETE_RESERVATION'
+const DELETE_RESERVATION = 'reservations/DELETE_RESERVATION';
 
 const setTruckReservations = (reservations) => {
     return {

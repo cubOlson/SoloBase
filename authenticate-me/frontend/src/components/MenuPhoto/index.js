@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMenu } from '../../store/photos';
 import { useParams } from 'react-router-dom';
 
-// import './TruckReviews.css';
+import './MenuPhoto.css';
 
 function MenuBox () {
     const photos = useSelector(state => state.photos);
@@ -16,7 +16,7 @@ function MenuBox () {
     }, [dispatch, id]);
 
     return (
-        <img src={photos.url} alt={photos.caption}/>
+        <img src={photos.url} alt={photos.caption} />
     )
 }
 

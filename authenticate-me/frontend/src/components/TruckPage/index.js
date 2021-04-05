@@ -21,28 +21,40 @@ function TruckPage () {
         dispatch(getOneTruck(id));
     }, [dispatch, id]);
 
-    let reviewButton;
+    let buttonArray;
     if (sessionUser) {
-        reviewButton = (
-        <li>
+        buttonArray = (
+        <>
             <Link to="/review">
                 <button type="button">Leave a Review!</button>
             </Link>
             <Link to="/reservation">
                 <button type="button">Request a Truck!</button>
             </Link>
-        </li>
+        </>
         ) 
+    } else {
+        buttonArray = (
+        <>
+            <Link to="/reservation">
+                <button type="button">Request a Truck!</button>
+            </Link>
+        </>
+        )
     }
     
     return (
         <div className="pageDiv">
-            <div className="truckImageDiv">
-                <img className="img" src="/TruckVector.png" alt="truck vector"/>
-                <div className="label">
-                    <h1>{trucks.name}</h1>
-                    <p>{trucks.foodType}</p>
+            <div className="green">
+                <div className="yellow">
+                    <div className="orange">
+                        <img className="img" src="/StockTruck.jpg" alt="truck vector"/>
+                    </div>
                 </div>
+            </div>
+            <div className="label">
+                <h1>{trucks.name}</h1>
+                <p>{trucks.foodType}</p>
             </div>
             <div className="infoDiv">
                 <div className="descriptionDiv">
@@ -54,14 +66,17 @@ function TruckPage () {
                     <a href={trucks.website}>Website</a>
                 </div>
             </div>
-            {reviewButton}
-            <div className="photosDiv">
-                <MenuBox />
-                <PhotosBox />
+            <div className="buttons">
+                {buttonArray}
             </div>
             <div className="reviewsDiv">
                 <ReviewBox />
             </div>
+            <div className="photosDiv">
+                <MenuBox className="menu"/>
+                <PhotosBox className="photos"/>
+            </div>
+
         </div>
         
     )

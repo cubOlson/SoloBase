@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTrucks } from '../../store/trucks';
 
+import './TrucksList.css';
+import '../../index.css';
+
 function TrucksList () {
     const trucks = useSelector(state => state.trucks)
 
@@ -14,8 +17,13 @@ function TrucksList () {
     const trucksElement = Object.values(trucks).map(truck => {
         return (
             <li key={truck.id}>
-                <h2>{truck.name}</h2>
-                <p>{truck.description}</p>
+                <div className="image">
+                    <img src="./StockTruck.jpg" />
+                </div>
+                <div className="words">
+                    <h2>{truck.name}</h2>
+                    <p>{truck.description}</p>
+                </div>
             </li>
         );
         });
