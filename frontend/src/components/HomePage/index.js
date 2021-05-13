@@ -20,7 +20,7 @@ function HomePage(){
             <>
                 <div className="cheese"></div>
                 <Link to={`/trucks/${truck.id}`} key={truck.id} className="patty">
-                        <img src="./StockTruck.jpg" alt="stock truck" className="thumbnail" />
+                        <img src="/StockTruck.jpg" alt="stock truck" className="thumbnail" />
                         <div className="words">
                             <h2 className="highlight">{truck.name}</h2>
                             <p>{truck.foodType}</p>
