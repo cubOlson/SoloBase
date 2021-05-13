@@ -45,7 +45,9 @@ function HomePage(){
             <div className="trucks">
                 {trucksElement}
             </div>
-            <div className="bottom"></div>
+            <div className="bottom">
+                <a href='https://github.com/cubOlson'>Cub Olson</a>
+            </div>
         </div>
     );
 };

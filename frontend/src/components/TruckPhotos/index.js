@@ -16,17 +16,16 @@ function PhotosBox () {
     }, [dispatch, id]);
 
     const photosElement = Object.values(photos).map(photo => {
+        console.log('CAPTION', photo.caption)
         return (
-            <li key={photo.id}>
-                <img src={photo.url} alt={photo.caption} />
-            </li>
+                <img src={photo.url} alt={photo.caption} key={photo.caption}/>
         );
         });
     
     return (
-        <ul className="photosDiv">
+        <div className="photosDiv">
             {photosElement}
-        </ul>
+        </div>
     )
 }
 

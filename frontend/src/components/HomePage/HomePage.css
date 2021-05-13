@@ -66,6 +66,10 @@
     border-bottom: 10px solid var(--darbrown);
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 25pt;
+    color: var(--green);
+    text-decoration: underline;
 }
 
 .cheese {
