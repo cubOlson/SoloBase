@@ -7,6 +7,7 @@ import photosReducer from './photos';
 import reservationReducer from './reservations';
 import userTrucksReducer from './userTrucks';
 import locationsReducer from './locations';
+import modalReducer from './modal';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   reservations: reservationReducer,
   userTrucks: userTrucksReducer,
   locations: locationsReducer,
+  modal: modalReducer,
 });
 
 let enhancer;

@@ -1,12 +1,30 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
+import { showModal, setCurrentModal } from '../../store/modal'
+import LoginFormPage from '../LoginFormPage/index'
+import SignUpFormPage from '../SignupFormPage/index'
+
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+
+  const dispatch = useDispatch();
+
+  const showLogin = () => {
+    dispatch(setCurrentModal(LoginFormPage))
+    dispatch(showModal())
+  }
+
+  const showSignup = () => {
+    dispatch(setCurrentModal(SignUpFormPage))
+    dispatch(showModal())
+  }
+
+
 
   let sessionLinks;
   if (sessionUser) {
@@ -19,8 +37,8 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login" className="link">Log In</NavLink>
-        <NavLink to="/signup" className="link">Sign Up</NavLink>
+        <button onClick={showLogin}>Log In</button>
+        <button onClick={showSignup}>Sign Up</button>
       </>
     );
   }

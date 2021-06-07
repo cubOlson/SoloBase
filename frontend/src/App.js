@@ -12,6 +12,7 @@ import TruckPage from './components/TruckPage';
 import ReservationFormPage from './components/ReservationForm';
 import CreateTruckPage from './components/CreateTruckPage';
 import UserPage from './components/UserPage';
+import Modal from './components/Modal';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <Modal />
       {isLoaded && (
         <Switch>
           <Route path="/" exact>
